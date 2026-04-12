@@ -98,6 +98,24 @@ def search_edit_menu():  # search menu function v3
         # ask user if changes are required
         choice = easygui.buttonbox(current_info, "Verify Details", choices=["Edit", "Keep as is"])
 
+        if choice == "Edit":
+            available_items = list(prices.keys())
+            # allow user to select new items
+            main = easygui.buttonbox("Select New Main:", choices=available_items)
+            if not main: return
+            
+            side = easygui.buttonbox("Select New Side:", choices=available_items)
+            if not side: return
+            
+            drink = easygui.buttonbox("Select New Drink:", choices=available_items)
+            if not drink: return
+
+            # update dictionary
+            burger_menu[searched_combo] = {"Main": main, "Side": side, "Drink": drink}
+            easygui.msgbox(f"Combo '{searched_combo}' has been successfully updated!", "Success")
+    else:
+        easygui.msgbox(f"Sorry, '{searched_combo}' was not found on the menu.", "Not Found")
+
         
 def delete_combo():
     pass
