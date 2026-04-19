@@ -117,7 +117,7 @@ def search_edit_menu():  # search menu function v3
         easygui.msgbox(f"Sorry, '{searched_combo}' was not found on the menu.", "Not Found")
 
         
-def delete_combo():
+def delete_combo():  # delete combo function v4
     # get list of all combos
     combo_list = list(burger_menu.keys())
     
